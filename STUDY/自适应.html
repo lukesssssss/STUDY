@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    span {
+        font-size: 2rem;
+        width: 3rem;
+        height: 3rem;
+        background-color: #888;
+    }
+</style>
+
+<body>
+    <span>我的很大</span>
+    <script>
+        // 获取页面大小
+        function start() {
+        let doc = document.documentElement
+        let w = doc.clientWidth / 10
+        doc.style.fontSize = w + 'px'
+        }
+        start()
+        //当页面大小发生变化时执行函数
+        window.addEventListener('resize', function () {
+            start()
+        })
+    </script>
+</body>
+
+</html>

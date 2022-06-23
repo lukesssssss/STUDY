@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    div {
+        width: 200px;
+        height: 200px;
+        background-color: rgba(32, 27, 32, 0.067);
+    }
+</style>
+
+<body>
+    <input type="text" placeholder="请输入">
+    <div>大盒子</div>
+    <script>
+        //防抖
+        const input = document.querySelector('input')
+        input.addEventListener('input', postWord(demo, 2000))
+
+        function postWord(fn, wait) {
+            //先定义一个空timeOut
+            let timeOut = null
+            console.log(111);
+            return args => {
+                //当timeOut不为空时执行，清除还未执行完毕的定时器，重新执行
+                if (timeOut) {
+                    clearTimeout(timeOut)
+                }
+                timeOut = setTimeout(fn, wait)
+            }
+
+
+        }
+
+        function demo() {
+            console.log('这就是防抖');
+        }
+        //节流
+        const div = document.querySelector('div')
+        div.addEventListener('touchmove',throttle(2000)
+        )
+
+        function throttle(time) {
+            let timer = null
+            // 定义一个空，当他不为空时不然执行，执行完毕后再次变为空
+            return function() {
+                if (!timer) {
+            timer = setTimeout(function send() {
+            console.log('这就是节流');
+            timer = null
+        }, time)
+            }
+            }
+            
+
+        }
+
+        
+    </script>
+</body>
+
+</html>
