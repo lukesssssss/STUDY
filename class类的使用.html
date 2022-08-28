@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class phone {
+            static name = 'zzl'
+            constructor(one, two) {
+                this.c = one + two
+            }
+            huawei() {
+                console.log('就这');
+            }
+        }
+        let np = new phone(6, 11)
+        //实例化对象无法直接拿到static的静态属性，static的在constructor上面
+        console.log(np.name);
+        console.log(phone.name);
+        console.log(new phone());
+        console.log(np.constructor.name);
+    </script>
+</body>
+
+</html>

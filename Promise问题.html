@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let success = true
+        let p = new Promise((resolve, reject) => {
+            if (success) {
+                let lv = '成功了'
+                resolve(lv)
+            } else {
+                let lv = '失败了'
+                reject(lv)
+            }
+        })
+        let p2 = () => {
+            return Promise.resolve('这就是链式调用')
+        }
+        //从此p有了成功和失败的回调
+        let end = p.then(p2).then(res => console.log(res)).catch(err => console.error(err))
+    </script>
+
+</body>
+
+</html>

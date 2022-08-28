@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let obj = {
+            nam2: 'yigeren',
+            sex: "nan",
+            like: 'history',
+            tall: 180
+        }
+        for (let mine in obj) {
+            console.log(mine);
+        }
+        let arr = [111, 'da', '就这']
+        console.log(typeof (arr.valueOf()));
+        //理解this的指向
+
+        function kule(a, b) {
+            this.name = a
+            this.minzi = b
+        };
+        let array = {
+            all: '就这',
+            a: () => {
+                console.log(this, '构造1')
+            },
+            b: function () {
+                console.log(this, '构造2');
+            },
+            c: {
+                d: () => {
+                    console.log(this.all, '套娃');
+                }
+            }
+        }
+
+        const ful = 1000
+        console.log(new kule('555', 'fuck'));
+        console.log(new kule('sb', '250'));
+        console.log(new kule());
+        array.a()
+        array.b()
+        array.c.d()
+        setTimeout(() => {
+            console.log(this);
+        }, 1000)
+        let friends = ['gx', 'lh', 'ls', 'zy']
+        //遍历数组的话，for in 遍历的是键值 for of 遍历的是键名,两个都不能return
+        for (let every of friends) {
+            console.log(every);
+            every + "666"
+        }
+        for (let every in friends) {
+            console.log(every);
+        }
+        let all = []
+        friends.map(item => {
+            
+            all.push(item + '这就是')
+            console.log(all, '这就是all');
+        })
+        console.log(friends, all);
+    </script>
+</body>
+
+</html>

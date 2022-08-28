@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    div {
+        width: 100px;
+        height: 100px;
+        background-color: pink;
+    }
+</style>
+
+<body>
+    <input type="text" placeholder="请输入">
+    <button onclick="add()">提交保存</button>
+    <div onclick="clearall()">全部清空</div>
+    <script>
+        const input = document.querySelector('input')
+        let a = 0
+
+        function add() {
+            console.log(input.value);
+            //建立内容
+            localStorage.setItem(`第${a}次`, input.value)
+            a++
+            console.log(a);
+        }
+        //读取内容
+        console.log(localStorage.getItem('第2次'));
+
+        //清空全部
+        function clearall() {
+            localStorage.clear()
+        }
+        console.log(typeof(a));
+    </script>
+</body>
+
+</html>

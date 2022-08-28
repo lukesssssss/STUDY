@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" placeholder="打印">
+    <button class="append" id="555">打印</button>
+    <button class="change" id="6666">更换</button>
+    <script>
+        const person = '好细'
+        const man = {
+            name: '狗儿子'
+        };
+
+        function ren(age) {
+            this.age = age
+            console.log(this, this.man, this.name);
+            console.log(this.person);
+        }
+        console.log(this, this.man)
+        ren.apply(man) //apply和call，bind都可以改变this指向，其中apply和call会立即执行，
+        //而bind要在后面加一个括号,因为bind返回的是一个函数
+        ren.bind(person)(13) //因为指向改变了，所以this.age添加在了person里面
+        console.log(person);
+
+        //点击更换打印的数
+        const append = document.querySelector('.append')
+        const change = document.querySelector('.change')
+        //不能写箭头函数
+        append.addEventListener('click',fc = function() {
+            console.log(this.id);
+        })
+        change.addEventListener('click', function () {
+            fc = function() {
+                console.log(change.id)
+            }
+        })
+    </script>
+</body>
+
+</html>

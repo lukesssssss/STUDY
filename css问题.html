@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    /* 快速居中对齐 */
+    body {
+        width: 100%;
+        height: 100%;
+        display: flex;
+    }
+
+    html {
+        width: 100%;
+        height: 100%;
+    }
+
+    div {
+        margin: auto;
+        width: 400px;
+        height: 400px;
+        background-color: pink;
+    }
+</style>
+
+<body>
+    <div>
+        这是一个大盒子
+    </div>
+    <script>
+        let tobj = {
+            name: 'zzl',
+            age: '22',
+            sex: 'man'
+        }
+        for (let obj2 in tobj) {
+            console.log(obj2, '第一');
+            console.log(tobj[obj2]);
+        }
+        //真正的深拷贝
+        function deepClone(obj) {
+            //建立一个空的数组或对象
+            let target = obj === Array ? [] : {}
+            for (let keys in obj) {
+                if (obj.hasOwnProperty(keys)) {
+                    if (obj[keys] && typeof obj[keys] === 'object') {
+                        target[keys] = deepClone(obj[keys])
+                    }
+                } else {
+                    target[keys] = obj[keys]
+                }
+
+            }
+            return target
+        }
+        let newobj = deepClone(tobj)
+        console.log(newobj);
+        newobj.wifi = 'saber'
+        console.log(newobj);
+    </script>
+</body>
+
+</html>

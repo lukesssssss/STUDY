@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<h1></h1>
+
+<body>
+    <script>
+        time = document.querySelector('h1')
+
+
+        function nowtime() {
+            time.innerText = new Date()
+        }
+        setInterval(() => {
+            time.innerText = new Date()
+        }, 1000)
+        console.log(new Date());
+        for (var i = 0; i < 5; i++) {
+            console.log(i);
+        }
+        console.log('第二' + i);
+        var n = 11
+        console.log(n++, n);
+
+        let a = function () {
+            return 1
+        }
+        let b = a
+        b.addmoney = '我就知道'
+        console.log(a.addmoney);
+    </script>
+</body>
+
+</html>

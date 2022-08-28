@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    /* 给图片高度还是非常重要的 */
+    img {
+        height: 900px;
+    }
+</style>
+
+<body>
+    <img alt="懒加载" data-original="G:\unity\图片\美图\⚡-97577841.png">
+    <img alt="懒加载" data-original="G:\unity\图片\美图\iTab-62467e232ca1c96dae3c50ea.jpg">
+    <img alt="懒加载" data-original="G:\unity\图片\美图\アークナイツ-97003437.png">
+    <img alt="懒加载" data-original="G:\unity\图片\美图\落とし物-98987207.png">
+    <script>
+        let imgs = document.querySelectorAll('img')
+
+        function lazyload(imgs) {
+            const clientH = document.documentElement.clientHeight //获取视口高度
+            const scrllT = document.documentElement.scrollTop || document.body.scrollTop //获取滚动高度
+            for (let i = 0; i < imgs.length; i++) {
+                //当图片的距离顶端距离offsetTop小于滚动距离加视口距离时
+                if (clientH + scrllT > imgs[i].offsetTop && !imgs[i].src) {
+                    //把自定义的内容赋值给src
+                    imgs[i].src = imgs[i].dataset.original
+                    console.log(scrllT, clientH, imgs[i].offsetTop);
+                }
+            }
+        }
+        // console.log(document.documentElement.clientHeight, document.body.scrollTop);
+        lazyload(imgs)
+        //当页面滚动时执行这个函数
+        window.addEventListener('scroll', function () {
+            lazyload(imgs)
+
+        })
+
+        let arr = '1.5..556.8.4'
+        const newarr = arr.split('.')
+        console.log(newarr,arr[1]);
+    </script>
+</body>
+
+</html>
