@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .big {
+        display: flex;
+        width: 550px;
+        height: 550px;
+        border: 5px solid #556;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .big > div {
+        
+        /* !important优先级最高 */
+        background-color: pink !important;
+        width: 0;
+        height: 0;
+        border-top: 50px solid skyblue;
+        border-left: 50px solid transparent;
+        border-right: 50px solid skyblue;
+        border-bottom: 50px solid transparent;
+        /* 旋转45度 */
+        transform: rotate(45deg);
+        
+    }
+
+    div {
+        background-color: rgb(147, 25, 25);
+    }
+</style>
+
+<body>
+    <div class="big">
+    <div></div>
+</div>
+</body>
+
+</html>

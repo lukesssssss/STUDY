@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //splice只能对数组有用，里面有三个值，分别是第几个，要删除几个，要添加什么
+        let obj = [{
+                name: 'xiaoxiao',
+                sex: 'women',
+                age: 18
+            },
+            {
+                name: 'xiaoxiao',
+                sex: 'women',
+                age: 18
+            },
+            {
+                name: 'xiaoxiao',
+                sex: 'women',
+                age: 18
+            }
+        ]
+        obj.splice(
+            2, 1, {
+                name: 'xiao',
+                sex: 'man',
+                age: 12
+            })
+        console.log(555);
+        console.log(obj);
+    </script>
+</body>
+
+</html>

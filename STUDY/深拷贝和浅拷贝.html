@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //浅拷贝
+        const array = [0, 2, 3, 4, 5, 6, 8]
+        const newArray = array
+        array[2] = '一变全变'
+        newArray[0] = '累了'
+        console.log(array, newArray);
+        //总结：浅拷贝只是值的代理，双方都指向同一个作用域，所以一变全变
+        const name0 = {
+            al: 555,
+            bl: 666,
+            cl: 888
+        }
+        const name2 = {
+            al: 555,
+            bl: 777
+
+        }
+        //拷贝对象
+        //assign枚举出来合并对象，一样的则会被覆盖
+        const name1 = Object.assign(name0, name2)
+        name1[0] = '算了吧'
+        //只有name1和name0的第一个变了，因为assign合并的值是放到name0里面打印出来的，实际上就是name0把值浅拷贝给name1
+        console.log(name1, name0, name2);
+
+        //深拷贝
+        const app = {
+            b: 100,
+            c: 200,
+            D: 300,
+            ren: [1, , 6, 5, 55, 44, 0]
+        }
+        //先转化为字符串类型，再转换位对象类型
+        const newApp = JSON.parse(JSON.stringify(app))
+        newApp[2] = '我不影响app，我是深拷贝'
+        console.log(app, newApp);
+        var arrayP = []
+        for (let ap in app) {
+            //这打印的是app对象的值
+            console.log(app[ap]);
+            //这打印的是app对象
+            console.log(ap);
+            arrayP.push(ap)
+            console.log(arrayP);
+        }
+    </script>
+</body>
+
+</html>
