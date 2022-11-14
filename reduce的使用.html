@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h4>生成随机数</h4>
+    <button onclick="getNum()">开始生成</button>
+    <div class="add">相加的和是多少？</div>
+    <button onclick="getall()">把以前所有的相加</button>
+    <script>
+        const num = document.createElement("div")
+        const add = document.querySelector(".add")
+        let all = []
+
+        function getNum() {
+            let a = Math.round(Math.random() * 10)
+            let b = Math.round(Math.random() * 10)
+            let c = Math.round(Math.random() * 10)
+            all.push(a)
+            all.push(b)
+            all.push(c)
+            num.innerHTML = a + "." + b + "." + c
+            document.body.insertBefore(num, add)
+            add.innerHTML = a + b + c
+            console.log(all);
+        }
+
+        function forall(total, current) {
+            return total + current
+        }
+
+        function getall() {
+            //reduce接受2个参数，第一个是函数，里面有4个值，第一个是上一个被处理过的值，第二个才是当前值，后面的10表示total的初始值
+            let d = all.reduce(function (total, current) {
+                return total + current
+            }, 10)
+            let he = document.createElement('div')
+            he.innerHTML = d
+            document.body.append(he)
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    a::after {
+        content: '我是假的';
+    }
+
+    /* 点击后变为红色 */
+    a:visited {
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        transition: 2s;
+        color: rgb(190, 218, 53);
+    }
+
+    /* 鼠标按下未弹起时 */
+    a:active {
+        color: aqua;
+        transition: 2s;
+    }
+
+    /* 当input获取焦点后 */
+    input:focus {
+        width: 100px;
+        height: 100px;
+        border: 1px solid skyblue;
+    }
+</style>
+
+<body>
+    <a href="#">666</a>
+    <input type="text" placeholder="是这样的">
+</body>
+
+</html>

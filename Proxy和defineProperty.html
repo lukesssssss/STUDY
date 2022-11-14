@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const my = {
+            name: 'zzl',
+            age: 22
+        }
+        const i = new Proxy(my, {
+            //target是原数据，popname是修改后的值
+            //get是读取和增加时调用
+            get(target, propName) {
+                console.log('有人要看我' + propName);
+                console.log(propName);
+                //使用[]里面要是字符串才行,因为propName是一个变量，使用需要如此
+                // return target[propName]
+                return Reflect.get(target, propName)
+            },
+            //value是修改后的值
+            set(target, propName, value) {
+                console.log('修改数据了');
+                Reflect.set(target, propName, value)
+            },
+            deleteProperty(target, propName) {
+                console.log('要删除数据了');
+                //删除某项数据的语法
+                // delete target[propName]
+                Reflect.deleteProperty(target, propName)
+            }
+        })
+    </script>
+</body>
+
+</html>
